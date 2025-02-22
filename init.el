@@ -1,5 +1,5 @@
-; I definitely want this here
-; (setq debug-on-error t)
+;; I definitely want this here
+;;(setq debug-on-error t)
 
 ;; Chage deafult messages
 (setq initial-scratch-message "")
@@ -32,11 +32,6 @@
 (setq backup-directory-alist '(("." . "~/.emacs.d/tmp-files/")))
 (setq auto-save-file-name-transforms `((".*" "~/.emacs.d/tmp-files/" t)))
 (setq lock-file-name-transforms `((".*" "~/.emacs.d/tmp-files/" t)))
-
-;; Add paths to env
-(add-to-list 'exec-path "/home/nic/.cargo/bin")
-(add-to-list 'exec-path "/home/nic/.dotnet")
-(add-to-list 'exec-path "/home/nic/.odin")
 
 ;; Use the best font ever
 (set-frame-font "Iosevka Custom-14")
@@ -108,30 +103,23 @@
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-unset-key (kbd "C-x C-z"))
 
+;; Font ligatures
+(ligature-set-ligatures
+ 'prog-mode
+ '("<---" "<--"  "<<-" "<-" "->" "-->" "--->" "<->" "<-->" "<--->" "<---->" "<!--"
+   "<==" "<===" "<=" "=>" "=>>" "==>" "===>" ">=" "<=>" "<==>" "<===>" "<====>" "<!---"
+   "<~~" "<~" "~>" "~~>" "::" ":::" "==" "!=" "===" "!=="
+   ":=" ":-" ":+" "<*" "<*>" "*>" "<|" "<|>" "|>" "+:" "-:" "=:" "<******>" "++" "+++"))
+(global-ligature-mode)
+
 ;; Line number
-;; (global-display-line-numbers-mode)
-;; (setq-default display-line-numbers-type 'relative)
-;; (setq-default display-line-numbers-grow-only t)
+;;(global-display-line-numbers-mode)
+;;(setq display-line-numbers-type 'relative)
+;;(setq-default display-line-numbers-grow-only t)
 
 ;; Show column number
 (column-number-mode)
 (setq column-number-indicator-zero-based nil)
-
-;; Highlight some words differently
-(setq fixme-modes '(c-mode rust-mode odin-mode))
-(make-face 'font-lock-fixme-face)
-(make-face 'font-lock-note-face)
-(mapc (lambda (mode)
-        (font-lock-add-keywords
-         mode
-         '(("\\<\\(FIXME\\)" 1 'font-lock-fixme-face t)
-           ("\\<\\(WARNING\\)" 1 'font-lock-fixme-face t)
-           ("\\<\\(TODO\\)" 1 'font-lock-fixme-face t)
-           ("\\<\\(IMPORTANT\\)" 1 'font-lock-note-face t)
-           ("\\<\\(NOTE\\)" 1 'font-lock-note-face t))))
-      fixme-modes)
-(modify-face 'font-lock-fixme-face "Red" nil nil t nil nil nil nil)
-(modify-face 'font-lock-note-face "Green" nil nil t nil nil nil nil)
 
 ;; The tab size should always be 4
 (setq-default indent-tabs-mode nil)
@@ -241,7 +229,8 @@
 ;; Lode some extra modes and themes
 (load "~/.emacs.d/modes/old-ada-mode/ada-mode.el")
 (load "~/.emacs.d/modes/odin-mode.el")
+(load "~/.emacs.d/modes/simpc-mode.el")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
 ;; Set theme
-(load-theme 'naysayer)
+(load-theme 'yehsayer)
