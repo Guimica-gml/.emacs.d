@@ -227,7 +227,6 @@
 (yas-global-mode)
 
 ;; Lode some extra modes and themes
-(load "~/.emacs.d/modes/old-ada-mode/ada-mode.el")
 (load "~/.emacs.d/modes/odin-mode.el")
 (load "~/.emacs.d/modes/simpc-mode.el")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")

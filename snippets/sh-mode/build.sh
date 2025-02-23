@@ -4,15 +4,9 @@
 # --
 
 #!/usr/bin/env sh
-set -e
+set -xe
 
-CFLAGS="-Wall -Wextra -pedantic -std=c11"
+CFLAGS="-Wall -Wextra -pedantic -ggdb -std=c11"
 CLIBS="$2"
 
 gcc $CFLAGS -o $1 main.c $CLIBS
-
-if [ "\$1" = "run" ]
-then
-    shift
-    ./$1 "$@"
-fi
