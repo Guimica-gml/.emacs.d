@@ -1,0 +1,7 @@
+auto-save-list/*
+bookmarks
+elpa/*
+.mc-lists.el
+smex-items
+tmp-files/*
+transient/*
