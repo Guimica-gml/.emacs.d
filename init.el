@@ -103,15 +103,6 @@
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-unset-key (kbd "C-x C-z"))
 
-;; Font ligatures
-(ligature-set-ligatures
- 'prog-mode
- '("<---" "<--"  "<<-" "<-" "->" "-->" "--->" "<->" "<-->" "<--->" "<---->" "<!--"
-   "<==" "<===" "<=" "=>" "=>>" "==>" "===>" ">=" "<=>" "<==>" "<===>" "<====>" "<!---"
-   "<~~" "<~" "~>" "~~>" "::" ":::" "==" "!=" "===" "!=="
-   ":=" ":-" ":+" "<*" "<*>" "*>" "<|" "<|>" "|>" "+:" "-:" "=:" "<******>" "++" "+++"))
-(global-ligature-mode)
-
 ;; Line number
 ;;(global-display-line-numbers-mode)
 ;;(setq display-line-numbers-type 'relative)
@@ -225,6 +216,15 @@
 ;; Snippets
 (require 'yasnippet)
 (yas-global-mode)
+
+;; Font ligatures
+(ligature-set-ligatures
+ 'prog-mode
+ '("<---" "<--"  "<<-" "<-" "->" "-->" "--->" "<->" "<-->" "<--->" "<---->" "<!--"
+   "<==" "<===" "<=" "=>" "=>>" "==>" "===>" ">=" "<=>" "<==>" "<===>" "<====>" "<!---"
+   "<~~" "<~" "~>" "~~>" "::" ":::" "..." "==" "!=" "===" "!=="
+   ":=" ":-" ":+" "<*" "<*>" "*>" "<|" "<|>" "|>" "+:" "-:" "=:"))
+(global-ligature-mode)
 
 ;; Lode some extra modes and themes
 (load "~/.emacs.d/modes/odin-mode.el")
