@@ -1,5 +1,5 @@
 ;; I definitely want this here
-;;(setq debug-on-error t)
+(setq debug-on-error t)
 
 ;; Chage deafult messages
 (setq initial-scratch-message "")
@@ -142,14 +142,24 @@
 ;; Activate all the packages (in particular autoloads)
 (package-initialize)
 
+;; List of packages
+(setq my/packages
+      '(ligature yasnippet smex restart-emacs multiple-cursors move-text magit company
+        glsl-mode cobol-mode rust-mode lua-mode go-mode))
+
 ;; Fetch the list of packages available
 (unless package-archive-contents
   (package-refresh-contents))
 
 ;; Install the missing packages
-(dolist (package package-selected-packages)
+(dolist (package my/packages)
   (unless (package-installed-p package)
     (package-install package)))
+
+;; Uninstall removed packages
+(dolist (package package-selected-packages)
+  (if (and (package-install-p package) (not (member package my/packages)))
+      (package-delete package)))
 
 ;; Auto complete in the minibuffer
 (require 'ido)
