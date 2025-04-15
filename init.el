@@ -123,6 +123,7 @@
 (require 'cc-mode)
 (setq c-basic-offset 4)
 (add-to-list 'c-default-style '(c-mode . "k&r"))
+(c-set-offset 'arglist-close 0)
 
 ;; Python settings
 (setq python-indent-offset 4)
