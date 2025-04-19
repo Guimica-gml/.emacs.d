@@ -1,5 +1,5 @@
 ;; I definitely want this here
-(setq debug-on-error t)
+;;(setq debug-on-error t)
 
 ;; Chage deafult messages
 (setq initial-scratch-message "")
