@@ -1,5 +1,5 @@
 ;; I definitely want this here
-;;(setq debug-on-error t)
+(setq debug-on-error t)
 
 ;; Chage deafult messages
 (setq initial-scratch-message "")
@@ -34,7 +34,7 @@
 (setq lock-file-name-transforms `((".*" "~/.emacs.d/tmp-files/" t)))
 
 ;; Use the best font ever
-(set-frame-font "Iosevka Custom-14")
+(set-frame-font "Iosevka Custom-13")
 
 ;; Ask for y/n instead of yes/no
 (setq use-short-answers t)
@@ -156,10 +156,19 @@
   (unless (package-installed-p package)
     (package-install package)))
 
-;; Uninstall removed packages
-(dolist (package package-selected-packages)
-  (if (and (package-install-p package) (not (member package my/packages)))
-      (package-delete package)))
+(defun my/is-package-a-dependency (test-package)
+  "Returns if a package is a dependency of another package or not"
+  (catch 'is-dep
+    (dolist (package my/packages)
+      (let ((deps (package--dependencies package)))
+        (if (member test-package deps)
+            (throw 'is-dep t))))))
+
+;; Uninstall removed packckages
+(dolist (package package-activated-list)
+  (if (and (package-installed-p package) (not (member package my/packages)) (not (my/is-package-a-dependency package)))
+      (let ((package-desc (package-get-descriptor package)))
+        (package-delete package-desc))))
 
 ;; Auto complete in the minibuffer
 (require 'ido)
