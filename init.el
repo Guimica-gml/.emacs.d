@@ -164,7 +164,7 @@
         (if (member test-package deps)
             (throw 'is-dep t))))))
 
-;; Uninstall removed packckages
+;; Uninstall removed packages
 (dolist (package package-activated-list)
   (if (and (package-installed-p package) (not (member package my/packages)) (not (my/is-package-a-dependency package)))
       (let ((package-desc (package-get-descriptor package)))
