@@ -9,14 +9,16 @@
        (region "gray20")
        (comment "gray65")
        (string comment)
-       (modeline-foreground background)
-       (modeline-background border)
-       (modeline-foreground-inactive foreground)
-       (modeline-background-inactive background)
+       (mode-line-foreground background)
+       (mode-line-background border)
+       (mode-line-foreground-inactive foreground)
+       (mode-line-background-inactive background)
        (hl-background region)
        (hl-face-background nil)
+       (fringe-background "black")
        (failure "red")
-       (line-number comment)
+       (line-number-foreground comment)
+       (line-number-background "#251c11")
        (line-number-current foreground))
   (setq fci-rule-color comment)
   (custom-theme-set-faces
@@ -54,7 +56,7 @@
    ;; rust specific
    `(rust-unsafe ((t (:foreground ,foreground :weight bold))))
 
-   ;; faces used by isearch
+   ;; isearch
    `(isearch ((t (:foreground ,foreground :background ,region :weight normal))))
    `(isearch-fail ((t (:foreground ,failure :bold t))))
    `(lazy-highlight
@@ -68,24 +70,27 @@
    `(show-paren-match ((t (:background ,region))))
    `(show-paren-mismatch ((t (:foreground ,failure :weight bold))))
 
-   ;; modeline
+   ;; mode-line
    `(mode-line
      ((t (:overline nil
           :underline nil
-          :foreground ,modeline-foreground
-          :background ,modeline-background
+          :foreground ,mode-line-foreground
+          :background ,mode-line-background
           :box nil))))
    `(mode-line-buffer-id ((t (:weight bold))))
    `(mode-line-inactive
      ((t (:overline nil
           :underline nil
-          :foreground ,modeline-foreground-inactive
-          :background ,modeline-background-inactive
+          :foreground ,mode-line-foreground-inactive
+          :background ,mode-line-background-inactive
           :box nil))))
 
+   ;; fringe-mode
+   `(fringe ((t (:background ,fringe-background))))
+
    ;; line numbers
-   `(line-number ((t (:background ,background :foreground ,line-number))))
-   `(line-number-current-line ((t (:background ,background :foreground ,line-number-current :weight bold))))
+   `(line-number ((t (:background ,line-number-background :foreground ,line-number-foreground))))
+   `(line-number-current-line ((t (:background ,line-number-background :foreground ,line-number-current :weight bold))))
 
    ;; hl-line-mode
    `(hl-line ((t (:background ,hl-background))))
