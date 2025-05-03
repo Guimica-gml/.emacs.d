@@ -103,6 +103,9 @@
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 (global-unset-key (kbd "C-x C-z"))
 
+;; sources ~/.bashrc
+(setq shell-command-switch "-ic")
+
 ;; Line number
 ;;(global-display-line-numbers-mode)
 ;;(setq display-line-numbers-type 'relative)
