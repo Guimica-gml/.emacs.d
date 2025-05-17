@@ -34,7 +34,7 @@
 (setq lock-file-name-transforms `((".*" "~/.emacs.d/tmp-files/" t)))
 
 ;; Use the best font ever
-(set-frame-font "Iosevka Custom-13")
+(setq default-frame-alist '((font . "Iosevka Custom-13")))
 
 ;; Ask for y/n instead of yes/no
 (setq use-short-answers t)
