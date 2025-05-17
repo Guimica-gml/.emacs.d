@@ -231,10 +231,10 @@
 (global-set-key (kbd "C-c C->") 'mc/mark-all-like-this)
 
 ;; Code auto complete
-(require 'company)
-(setq company-frontends '(company-echo-strip-common-frontend))
-(setq company-backends '((company-capf company-dabbrev-code)))
-(global-company-mode)
+;;(require 'company)
+;;(setq company-frontends '(company-echo-strip-common-frontend))
+;;(setq company-backends '((company-capf company-dabbrev-code)))
+;;(global-company-mode)
 
 ;; Snippets
 (require 'yasnippet)
