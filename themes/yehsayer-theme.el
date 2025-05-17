@@ -2,7 +2,7 @@
 
 (let* ((class '((class color) (min-colors 89)))
        (foreground "#D1B897")
-       (background "gray10")
+       (background "#181818")
        (cursor "white")
        (border foreground)
        (minibuffer cursor)
@@ -18,7 +18,7 @@
        (fringe-background "black")
        (failure "red")
        (line-number-foreground comment)
-       (line-number-background "#251c11")
+       (line-number-background background)
        (line-number-current foreground))
   (setq fci-rule-color comment)
   (custom-theme-set-faces
