@@ -147,8 +147,19 @@
 
 ;; List of packages
 (setq my/packages
-      '(ligature yasnippet smex restart-emacs multiple-cursors move-text magit company
-        glsl-mode cobol-mode rust-mode lua-mode go-mode))
+      '(ligature
+        yasnippet
+        smex
+        restart-emacs
+        multiple-cursors
+        move-text
+        magit
+        ;;company
+        glsl-mode
+        cobol-mode
+        rust-mode
+        lua-mode
+        go-mode))
 
 ;; Fetch the list of packages available
 (unless package-archive-contents
