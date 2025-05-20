@@ -81,14 +81,14 @@
   (move-beginning-of-line nil)
   (whitespace-cleanup-region (line-beginning-position) (line-end-position))
   (open-line 1)
-  (indent-for-tab-command))
+  (if (derived-mode-p 'prog-mode) (indent-for-tab-command)))
 
 (defun my/insert-line-below ()
   "Inserts a line below the cursor"
   (interactive)
   (move-end-of-line nil)
   (newline 1 1)
-  (indent-for-tab-command))
+  (if (derived-mode-p 'prog-mode) (indent-for-tab-command)))
 
 ;; Improve movementation
 (global-set-key (kbd "C-S-f") 'forward-word)
