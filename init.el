@@ -36,6 +36,9 @@
 ;; Use the best font ever
 (setq default-frame-alist '((font . "Iosevka Custom-13")))
 
+;; Make dired cooler
+(setq dired-listing-switches "-alh")
+
 ;; Ask for y/n instead of yes/no
 (setq use-short-answers t)
 
@@ -46,6 +49,9 @@
 
 ;; Typing over a selection deletes it
 (delete-selection-mode t)
+
+;; Compilation mode with colors :uwu:
+(add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
 
 ;; My own keybinds
 (global-set-key (kbd "C-c c") 'compile)
